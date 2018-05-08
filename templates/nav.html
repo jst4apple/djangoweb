@@ -1,0 +1,36 @@
+<nav class="navbar  navbar-default navbar-static-top" role="navigation">
+    <div class="container-fluid">
+    <div>
+        <ul class="nav navbar-nav">
+            <li><a href="{% url 'jsmind:index' %}">脑图</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Echarts <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">树图</a></li>
+                    <li><a href="#">日图</a></li>
+					<li><a href="#">点图</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">森林</a></li>
+					<li><a href="#">组内(总数)</a></li>
+					<li><a href="#">组内(最高最低比价)</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">另一个分离的链接</a></li>
+                </ul>
+            </li>
+			<li><a href="{% url 'admin:index' %}">后台数据</a></li>
+			{% if user.is_authenticated %}
+				<li ><a href="#">{{ user.username }}</a></li>
+				<li class="btn btn-default"><a href="{% url 'logout' %}?next={{ request.path }}">注销登录</a></li>
+				<li class="btn btn-default"><a href="{% url 'password_change' %}?next={{ request.path }}">修改密码</a></li>
+			{% else %}
+				<li>你还没有登录，请
+					<li><a href="{% url 'login' %}?next={{ request.path }}">登录</a></li>
+					或者
+					<li class="btn btn-default"><a href="{% url 'users:register' %}?next={{ request.path }}">注册</a></li>
+			{% endif %}
+        </ul>
+    </div>
+    </div>
+</nav>

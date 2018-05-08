@@ -15,41 +15,8 @@ class Base(Document):
 	isabstract = BooleanField()
 	meta = {'allow_inheritance': True}
 
-class connect:
-	relid = ObjectIdFiled()
-	node = ReferenceField('Node')
-	
-class Node(Base):
-	cahe = ListField(EmbeddedDocumentField(connect))
 
-	
-class DirectRe(Node):
-	start = ReferenceField(Node)
-	end = ReferenceField(Node)
-	
-	cahe = ListField(ReferenceField(Node))
-	
-class IndirectRe(Node):
-	chain = ListField(ReferenceField(DirectRe))
 
-class LikeRe(Node):
-	chain = ReferenceField(DirectRe)
-	
-class InterationRe(Node):
-	cnt      = IntField(default=0)
-	mincnt   = IntField(default=0)
-	relation = ReferenceField(DirectRe)
-	
-class ClassRelation:
-	name = "class"
-	def __init__(self, name)
-		self.dataset = ClassRelation.dataset
-		
-	def AddRel(self):
-		self.dataset.
-		
-		
-	def GetRel(self):
 	
 	
 	

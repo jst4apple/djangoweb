@@ -5,14 +5,14 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render, redirect
-from models import InterationRe,IndirectRe,Node,UserInfo
+#from models import InterationRe,IndirectRe,Node,UserInfo
 
 def auth(func):
 	def inner(request):
 		if request.user.is_authenticated():
 			return func(request)
 		else:
-			return  render(request, 'users/register.html', context={'form': form, 'next': "jsmind/index.html"})
+			return  render(request, 'registration/login.html', context={'next': request.path})
 	return inner
 @auth
 def index(request):
