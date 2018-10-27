@@ -1,34 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{% block title %}默认标题{% endblock %}</title>
-	<meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link href='{% static "bootstrap-3.3.7/css/bootstrap.min.css" %}' rel="stylesheet">
-
-	<script src='{% static "jquery/jquery.js" %}'></script>
-	<script src='{% static "bootstrap-3.3.7/js/bootstrap.min.js" %}'></script>
-	<script src='{% static "echarts/echarts.min.js" %}'></script>
-	<script src='{% static "echarts/drawit.js" %}'></script>
-	{% block head %}
-	{% endblock %}
-    <!-- <script src="ionic/ionic.bundle.min.js"></script> -->
-</head>
-<body>
+{% extends 'base_base.html' %}
+{% block nav %}
+	{% include 'nav.html' %}
+{% endblock %}
  
-{% include 'nav.html' %}
- 
-{% if user.is_authenticated %}
-	{% block content %}
-		<div>这里是默认内容，所有继承自这个模板的，如果不覆盖就显示这里的默认内容。</div>
-	{% endblock %}
-{% else %}
-
-{% endif %}
-
-
- 
-</body>
-</html>

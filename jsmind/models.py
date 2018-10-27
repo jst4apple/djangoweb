@@ -2,6 +2,9 @@
 from __future__ import unicode_literals
 from mongoengine import *
 
+import os
+import os.path
+
 connect('jsnode', host='localhost', port=27017)
 class UserInfo(Document):
 	name = StringField(max_length=16)
@@ -14,9 +17,3 @@ class Base(Document):
 	name = StringField(max_length=16)
 	isabstract = BooleanField()
 	meta = {'allow_inheritance': True}
-
-
-
-	
-	
-	
